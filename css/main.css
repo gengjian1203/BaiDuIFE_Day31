@@ -1,0 +1,21 @@
+h1, h2, h3, h4, h5, h6, div, select, option, input, button, ul, ol, li {
+    margin: 0px;
+    padding: 0px;
+}
+
+select {
+    width: 100px;
+    height: 20px;
+}
+
+.box {
+    border-collapse: collapse;
+    border: 1px solid #000000;
+}
+
+.boxcell {
+    width: 80px;
+    height: 10px;
+
+    text-align: center;
+}
