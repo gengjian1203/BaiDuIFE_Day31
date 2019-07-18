@@ -1,6 +1,8 @@
 window.onload = function() {
     // Init table
-    funSelectChange();    
+    funSelectChange();
+    // Init Bar    
+    funDrawBar();
 
     // Event
     // product event
