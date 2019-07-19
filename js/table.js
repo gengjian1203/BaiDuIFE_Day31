@@ -1,6 +1,5 @@
 let _arrTableData = [];
 
-
 function funUpdateTable() {
     var objWrap = document.getElementById("table-wrapper");
     var objTable = document.createElement("table");
@@ -165,4 +164,24 @@ function funSelectChange() {
     funGetTableData();
     // console.log(_arrTableData);
     funUpdateTable();
+}
+
+
+
+
+function funEventTableMove(target, arrSelect) {
+    var objtd = target.getElementsByTagName("td");
+    // console.log(objtd[2].innerHTML);
+    if (13 == objtd.length) {
+        for (var i = 1; i < objtd.length; i++) {
+            arrSelect[i - 1] = objtd[i].innerHTML;
+            // console.log(objtd[i].innerHTML);
+        }
+    } else {
+        for (var i = 2; i < objtd.length; i++) {
+            arrSelect[i - 2] = objtd[i].innerHTML;
+            // console.log(objtd[i].innerHTML);
+        }
+    }
+
 }
