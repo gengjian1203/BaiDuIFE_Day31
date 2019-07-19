@@ -133,6 +133,8 @@ class Line {
             ctx.arc(30 + (this.nStepLong * (i + 1)), 370 - (this.arrData[i] / this.nMaxValue) * this.nMaxHeight, 5, 0, Math.PI * 2, true);
             ctx.fill();
         }
+
+        ctx.strokeStyle = "black";
     }
 
     // 绘制折线图主函数
