@@ -1,5 +1,3 @@
-let _arrTableData = [];
-
 function funUpdateTable() {
     var objWrap = document.getElementById("table-wrapper");
     var objTable = document.createElement("table");
@@ -61,7 +59,15 @@ function funUpdateTable() {
                 // 正常数据
                 objTdData.className += "box ";
                 objTdData.className += "boxcell ";
-                objTdData.innerHTML = _arrTableData[i][j];
+                // if ( j >= 2) {
+                //     objTdData.innerHTML = "<input type='text' style='width:70px' value="  + _arrTableData[i][j] +  "></input>"
+                // } else {
+                    objTdData.setAttribute("x", j);
+                    objTdData.setAttribute("y", i);
+                    
+                    objTdData.innerHTML = _arrTableData[i][j];
+                // }
+                
                 objTrData.append(objTdData);
             }
         }
@@ -73,29 +79,28 @@ function funUpdateTable() {
 function funGetTableData() {
     if ((1 == _arrSelectRegion.length) && (1 < _arrSelectProduct.length)) {
         // 地区1个，商品大于1 => 地区region放在第一位
-        // add title
+        // add title 放在第一行
         var arrTableDataRow = [];
         for (var i = 0; i < _strTitle1.length; i++) {
-
             arrTableDataRow[i] = _strTitle1[i];
         }
         _arrTableData.push(arrTableDataRow);
-
-        for (var i = 0; i < sourceData.length; i++) {
-            if (!_arrSelectProduct.includes(sourceData[i].product)) {
+        // 第二行
+        for (var i = 0; i < _arrSourceData.length; i++) {
+            if (!_arrSelectProduct.includes(_arrSourceData[i].product)) {
                 continue;
             }
-            if (!_arrSelectRegion.includes(sourceData[i].region)) {
+            if (!_arrSelectRegion.includes(_arrSourceData[i].region)) {
                 continue;
             }
             var arrTableDataRow = [];
             // region
-            arrTableDataRow[0] = sourceData[i].region;
+            arrTableDataRow[0] = _arrSourceData[i].region;
             // product
-            arrTableDataRow[1] = sourceData[i].product;
+            arrTableDataRow[1] = _arrSourceData[i].product;
             // sale
-            for (var j = 0; j < sourceData[i].sale.length; j++) {
-                arrTableDataRow[j + 2] = sourceData[i].sale[j];
+            for (var j = 0; j < _arrSourceData[i].sale.length; j++) {
+                arrTableDataRow[j + 2] = _arrSourceData[i].sale[j];
             }
             _arrTableData.push(arrTableDataRow);
         }
@@ -105,32 +110,32 @@ function funGetTableData() {
         // add title
         var arrTableDataRow = [];
         for (var i = 0; i < _strTitle2.length; i++) {
-            arrTableDataRow[i] = _strTitle1[i];
+            arrTableDataRow[i] = _strTitle2[i];
         }
         _arrTableData.push(arrTableDataRow);
 
-        for (var i = 0; i < sourceData.length; i++) {
-            if (!_arrSelectProduct.includes(sourceData[i].product)) {
+        for (var i = 0; i < _arrSourceData.length; i++) {
+            if (!_arrSelectProduct.includes(_arrSourceData[i].product)) {
                 continue;
             }
-            if (!_arrSelectRegion.includes(sourceData[i].region)) {
+            if (!_arrSelectRegion.includes(_arrSourceData[i].region)) {
                 continue;
             }
             var arrTableDataRow = [];
             // product
-            arrTableDataRow[0] = sourceData[i].product;
+            arrTableDataRow[0] = _arrSourceData[i].product;
             // region
-            arrTableDataRow[1] = sourceData[i].region;
+            arrTableDataRow[1] = _arrSourceData[i].region;
             // sale
-            for (var j = 0; j < sourceData[i].sale.length; j++) {
-                arrTableDataRow[j + 2] = sourceData[i].sale[j];
+            for (var j = 0; j < _arrSourceData[i].sale.length; j++) {
+                arrTableDataRow[j + 2] = _arrSourceData[i].sale[j];
             }
             _arrTableData.push(arrTableDataRow);
         }
     }
 }
 
-function funPushData() {
+function funPushInput() {
     var objDiv = document.getElementById("product-radio-wrapper");
     var objInput = objDiv.getElementsByTagName("input");
     for (var i = 1; i < objInput.length; i++) {
@@ -146,7 +151,6 @@ function funPushData() {
             _arrSelectRegion.push(objInput[i].value);
         }
     }
-    
 }
 
 function funReset() {
@@ -157,31 +161,13 @@ function funReset() {
 }
 
 function funSelectChange() {
+    // 重置table
     funReset();
-    funPushData();
-    // console.log(_arrSelectProduct);
-    // console.log(_arrSelectRegion);
+    // 获取选择的checkbox
+    funPushInput();
+    // 获取table展示的数据
     funGetTableData();
     // console.log(_arrTableData);
+    // console.log(_arrSourceData);
     funUpdateTable();
-}
-
-
-
-
-function funEventTableMove(target, arrSelect) {
-    var objtd = target.getElementsByTagName("td");
-    // console.log(objtd[2].innerHTML);
-    if (13 == objtd.length) {
-        for (var i = 1; i < objtd.length; i++) {
-            arrSelect[i - 1] = objtd[i].innerHTML;
-            // console.log(objtd[i].innerHTML);
-        }
-    } else {
-        for (var i = 2; i < objtd.length; i++) {
-            arrSelect[i - 2] = objtd[i].innerHTML;
-            // console.log(objtd[i].innerHTML);
-        }
-    }
-
 }
