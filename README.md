@@ -1,5 +1,5 @@
 # 百度前端技术学院  
-## 第三十一到第三十三天：我是精明的小卖家（一）
+## 第三十一天到第三十三天：我是精明的小卖家（一）
 ### 课程目标  
 这次的任务将会分解为好几个子任务，是我们以后在工作中会经常遇到的项目类型--MIS系统，我们今天将会以MIS系统中的一个简单的页面示例，来让大家尝试一下稍微复杂的页面功能，我们如何进行拆解。
 
@@ -105,11 +105,18 @@
 * 在输入框中，按ESC键等同于按取消
 * 在输入框中，按回车键等同于按确认
 
-## 第三十七天到第三十八天：我是精明的小卖家（四）
+## 第三十九天到第四十一天：我是精明的小卖家（四）
 ### 课程目标  
 今天我们将进行这个任务系列的最后一课，学习Location，Hash等相关知识，来实现最后一个需求
 
 ### 需求1
+* 现在通过hash的方式
+* 把用户的一些交互状态通过某种方式记录在URL中
+* 分享或再次打开某个URL，需要从URL中读取到数据状态，并且进行页面呈现的还原
+* 需要记录的状态包括：产品的选择以及地域的选择
+
+### 需求2
+* 用pushState等代替前面直接操作hash的方式，来实现前面2个小需求及报表页面的需求
 
 ### 环境
 * 硬件环境  
@@ -122,12 +129,13 @@ Firefox (67.0.4)
 
 ### 作品展示
 [展示链接](https://gengjian1203.github.io/BaiDuIFE_Day31/)  
-![Result](readme/result1.png "作品展示")
-![Result](readme/result2.png "作品展示")
-![Result](readme/result3.png "作品展示")
+![Result](readme/result1.png "Day31作品展示")  
+![Result](readme/result2.png "Day34作品展示")  
+![Result](readme/result3.png "Day37作品展示")  
+![Result](readme/result4.png "Day39作品展示")  
 
 ### 相关链接
-[百度前端技术学院-第三十一到第三十三天：我是精明的小卖家（一）](http://ife.baidu.com/course/detail/id/53)  
-[百度前端技术学院-第三十一到第三十三天：我是精明的小卖家（二）](http://ife.baidu.com/course/detail/id/55)
-[百度前端技术学院-第三十一到第三十三天：我是精明的小卖家（三）](http://ife.baidu.com/course/detail/id/56)
-[百度前端技术学院-第三十一到第三十三天：我是精明的小卖家（四）](http://ife.baidu.com/course/detail/id/57)
+[百度前端技术学院-第三十一天到第三十三天：我是精明的小卖家（一）](http://ife.baidu.com/course/detail/id/53)  
+[百度前端技术学院-第三十四天到第三十六天：我是精明的小卖家（二）](http://ife.baidu.com/course/detail/id/55)  
+[百度前端技术学院-第三十七天到第三十八天：我是精明的小卖家（三）](http://ife.baidu.com/course/detail/id/56)  
+[百度前端技术学院-第三十九天到第四十一天：我是精明的小卖家（四）](http://ife.baidu.com/course/detail/id/57)  

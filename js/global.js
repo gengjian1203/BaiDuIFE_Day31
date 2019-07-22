@@ -8,6 +8,8 @@ let _arrSelectRegion = [];
 let _arrSourceData = []; 
 // table数据
 let _arrTableData = [];
+// checkbox选择情况
+let _arrCheckbox = [];
 
 // localStorage 读取
 function funLoadLocalStorage() {

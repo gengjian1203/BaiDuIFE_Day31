@@ -8,6 +8,8 @@ window.onload = function() {
     funSaveLocalStorage();
 
     // Init table
+    // console.log("sss");
+    funShowLocationStatue();
     funSelectChange();
     
     //
@@ -129,4 +131,10 @@ window.onload = function() {
         }
     }
 
+}
+
+// window.onhashchange = funShowLocationStatue;
+window.onpopstate = function() {
+    funShowLocationStatue();
+    funSelectChange();
 }
